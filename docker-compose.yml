@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    ports: 
+    - "${GITLAB_HTTP_PORT}:80"
+    - "${GITLAB_SSH_PORT}:22"
+    volumes: 
+    - ${GITLAB_CONFIG_HOME}:/etc/gitlab
+    - ${GITLAB_LOGS_HOME}:/var/log/gitlab
+    - ${GITLAB_DATA_HOME}:/var/opt/gitlab
+    hostname: ${GITLAB_HOST}
+    logging: 
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    restart: "unless-stopped"
+    #environment: 
+    #- "GITLAB_OMNIBUS_CONFIG=external_url '${GITLAB_HOST}';"
