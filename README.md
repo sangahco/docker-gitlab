@@ -21,3 +21,5 @@ GitLab Server Docker Image
 ## Check LDAP configuration
 
 `docker exec -it <container name> gitlab-rake gitlab:ldap:check`
+
+Is possible to use docker-compose `exec` command, replacing `docker exec -it <container name>` with `./docker-auto.sh exec gitlab`.
