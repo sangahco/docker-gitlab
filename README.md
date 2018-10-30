@@ -12,7 +12,7 @@ GitLab Server Docker Image
 ## Create a backup file
 
 `docker exec -it <container name> gitlab-rake gitlab:backup:create`
->By default the backup file are stored in /var/opt/gitlab/backups
+> By default the backup file are stored in the container folder `/var/opt/gitlab/backups` (on the host into `$GITLAB_DATA_HOME/backups`)
 
 ## Restore a backup file
 

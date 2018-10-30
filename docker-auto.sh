@@ -93,6 +93,10 @@ elif [ "$1" == "up" ]; then
 elif [ "$1" == "reconfigure" ]; then
     docker-compose $CONF_ARG exec gitlab gitlab-ctl reconfigure
     exit 0
+
+elif [ "$1" == "backup" ]; then
+    docker-compose $CONF_ARG exec gitlab gitlab-rake gitlab:backup:create
+    exit 0
     
 elif [ "$1" == "stop-all" ]; then
     if [ -n "$(docker ps --format {{.ID}})" ]
