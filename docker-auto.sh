@@ -49,6 +49,8 @@ echo
 echo "Commands:"
 echo "  up              Start the services"
 echo "  down            Stop the services"
+echo "  reconfigure     Update gitlab with the new settings"
+echo "  backup          Do a backup of gitlab data folder"
 echo "  ps              Show the status of the services"
 echo "  logs            Follow the logs on console"
 echo "  login           Log in to a Docker registry"
