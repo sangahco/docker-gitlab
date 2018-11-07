@@ -56,6 +56,7 @@ echo "  logs            Follow the logs on console"
 echo "  login           Log in to a Docker registry"
 echo "  remove-all      Remove all containers"
 echo "  stop-all        Stop all containers running"
+echo "  start-runner    Start a gitlab runner"
 }
 
 if [ $# -eq 0 ]; then
@@ -113,6 +114,11 @@ elif [ "$1" == "remove-all" ]; then
 elif [ "$1" == "logs" ]; then
     shift
     docker-compose $CONF_ARG logs -f --tail 200 "$@"
+    exit 0
+    
+elif [ "$1" == "start-runner" ]; then
+    shift
+    docker run -d --restart always -v ./gitlab-runner/config:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
     exit 0
 
 fi
