@@ -1,0 +1,17 @@
+[[runners]]
+  name = NAME
+  url = URL
+  token = TOKEN
+  executor = "docker"
+  [runners.docker]
+    tls_verify = false
+    image = "maven:3.5.4-jdk-8-alpine"
+    privileged = true
+    disable_entrypoint_overwrite = false
+    oom_kill_disable = false
+    disable_cache = false
+    volumes = ["/cache"]
+    shm_size = 0
+  [runners.cache]
+    [runners.cache.s3]
+    [runners.cache.gcs]
