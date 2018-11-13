@@ -1,0 +1,19 @@
+version: "3"
+
+services: 
+
+  autoscale-runner:
+    image: gitlab/gitlab-runner:latest
+    volumes: 
+    - ${GITLAB_AUTOSCALE_RUNNER_CONFIG}:/etc/gitlab-runner/config.toml
+    logging: 
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    environment: 
+    - CACHE_S3_ACCESS_KEY
+    - CACHE_S3_SECRET_KEY
+    - CACHE_S3_BUCKET_LOCATION
+    - CACHE_S3_SERVER_ADDRESS
+    restart: "unless-stopped"

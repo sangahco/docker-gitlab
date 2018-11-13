@@ -41,7 +41,8 @@ usage() {
 echo "Usage:  $(basename "$0") [MODE] [OPTIONS] [COMMAND]"
 echo 
 echo "Mode:"
-echo "  --with-hub      Production mode - have to run under the hub web server"
+echo "  --with-hub          Production mode - have to run under the hub web server"
+echo "  --autoscale-runner  Set the autoscale runner"
 echo
 echo "Options:"
 echo "  --help          Show this help message"
@@ -69,6 +70,10 @@ do
 case $i in
     --with-hub)
         CONF_ARG="-f docker-compose-with-hub.yml"
+        shift
+        ;;
+    --autoscale-runner)
+        CONF_ARG="-f docker-compose-autoscale-runner.yml"
         shift
         ;;
     --help|-h)
