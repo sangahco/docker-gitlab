@@ -73,7 +73,7 @@ case $i in
         shift
         ;;
     --autoscale-runner)
-        CONF_ARG="-f docker-compose-autoscale-runner.yml"
+        CONF_ARG="-f docker-compose-autoscale-runner.yml --project-name gitlab-runner"
         shift
         ;;
     --help|-h)
