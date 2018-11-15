@@ -3,7 +3,7 @@ version: "3"
 services: 
 
   autoscale-runner:
-    image: gitlab/gitlab-runner:latest
+    image: gitlab/gitlab-runner:alpine
     volumes: 
     - ${GITLAB_AUTOSCALE_RUNNER_CONFIG}:/etc/gitlab-runner/config.toml
     logging: 
