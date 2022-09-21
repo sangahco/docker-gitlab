@@ -103,7 +103,8 @@ elif [ "$1" == "reconfigure" ]; then
     exit 0
 
 elif [ "$1" == "backup" ]; then
-    docker-compose $CONF_ARG exec gitlab gitlab-rake gitlab:backup:create
+    # -T flag Disable pseudo-tty allocation so we can use it on crontab
+    docker-compose $CONF_ARG exec -T gitlab gitlab-rake gitlab:backup:create
     exit 0
     
 elif [ "$1" == "stop-all" ]; then
